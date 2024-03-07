@@ -96,7 +96,7 @@ return [
         'mongodb' =>[
             'driver' => 'mongodb',
             'dsn' => env('DB_URL', 'mongodb://localhost:27017'),
-            'database' => "think-thank"  
+            'database' => 'think-thank'
         ]
 
     ],
