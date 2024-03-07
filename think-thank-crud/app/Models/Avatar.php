@@ -10,4 +10,10 @@ class Avatar extends Model
     use HasFactory;
 
     protected $connection = 'mongodb';
+
+    protected $fillable = [
+        "image",
+        "diamond",
+        "isLocked",
+    ];
 }

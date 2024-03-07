@@ -34,7 +34,7 @@ class AvatarController extends Controller
 
     public function store(Request $request){
 
-        $avatar = new Avatar;
+        // $avatar = new Avatar;
 
         // $this ->validate
         // upload image
@@ -49,9 +49,9 @@ class AvatarController extends Controller
         ]);
 
 
-        $avatar->image = $request->image;
-        $avatar->diamond = $request->diamond;
-        $avatar->save();
+        // $avatar->image = $request->image;
+        // $avatar->diamond = $request->diamond;
+        // $avatar->save();
         return response() ->json(["resuld"=>"ok"], 201);
     }
 }
