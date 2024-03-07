@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 
 class AvatarController extends Controller
 {
-    public function show($slug)
+    public function show($slug) 
     {
         return view('avatar', [
-            'avatar' => Avatar::where('slug', '=', $slug)->first()
-        ]);
+            'avatar'=> Avatar::where('slug','=', $slug)->first()
+            ]);
     }
 
     public function store(Request $request){
