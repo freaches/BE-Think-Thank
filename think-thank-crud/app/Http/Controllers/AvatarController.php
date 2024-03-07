@@ -7,12 +7,6 @@ use App\Models\Avatar;
 
 class AvatarController extends Controller
 {
-    public function show($slug) 
-    {
-        return view('avatar', [
-            'avatar'=> Avatar::where('slug','=', $slug)->first()
-            ]);
-    }
 
     public function store(Request $request){
         $avatar = new Avatar;
