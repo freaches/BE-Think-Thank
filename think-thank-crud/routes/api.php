@@ -20,10 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('avatars', AvatarController::class)->only([
+Route::apiResource('avatars', AvatarController::class)->only([
     'destroy', 'show', 'store', 'update'
 ]);
 
-Route::resource('diamonds', StockDiamondController::class)->only([
+Route::apiResource('diamonds', StockDiamondController::class)->only([
     'destroy', 'show', 'store', 'update'
 ]);
