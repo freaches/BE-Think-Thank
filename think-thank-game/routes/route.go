@@ -1,15 +1,15 @@
 package routes
 
-import "github.com/gin-gonic/gin"
+import (
+	"think-thank-game/controllers"
+
+	"github.com/gin-gonic/gin"
+)
 
 func Routes() {
 	r := gin.Default()
 
-	r.GET("/avatar", func(ctx *gin.Context) {
-		ctx.JSON(200, gin.H{
-			"message": "bang",
-		})
-	})
+	r.GET("/avatar", controllers.GetAll)
 
 	r.Run()
 }

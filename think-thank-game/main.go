@@ -26,6 +26,7 @@ func main() {
 	// if err != nil {
 	// 	panic(err)
 	// }
-	// fmt.Printf("%s\n", jsonData)
+	// fmt.Printf("%s\n", &jsonData)
+	// fmt.Printf("%s\n", &coll)
 	routes.Routes()
 }
