@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\StockDiamondController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('avatars', AvatarController::class)->only([
+    'destroy', 'show', 'store', 'update'
+]);
+
+Route::resource('diamonds', StockDiamondController::class)->only([
     'destroy', 'show', 'store', 'update'
 ]);
