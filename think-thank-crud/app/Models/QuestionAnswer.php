@@ -12,7 +12,10 @@ class QuestionAnswer extends Model
     protected $connection = 'mongodb';
 
     protected $fillable = [
-        "diamond",
-        "priceMoney",
+        "question",
+        "answerTrue",
+        "answerFalse",
+        "score",
+        "Hint",
     ];
 }
