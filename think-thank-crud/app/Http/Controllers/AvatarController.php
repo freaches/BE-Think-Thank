@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 //import Resource "PostResource"
 use App\Http\Resources\AvatarResource;
-
+use Illuminate\Http\Exceptions\HttpResponseException;
 //import Facade "Validator"
 use Illuminate\Support\Facades\Validator;
 
@@ -75,9 +75,9 @@ class AvatarController extends Controller
 
     public function update(Request $request, $id){
         $validator = Validator::make($request->all(), [
-            'image'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'diamond'     => 'required',
-            'isLocked'   => 'required|boolean',
+            'image'     => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+            'diamond'     => 'int|nullable',
+            'isLocked'   => 'boolean|nullable',
         ]);
 
         // check if validation fails
@@ -91,12 +91,14 @@ class AvatarController extends Controller
                 "errors" => "avatar not found"
             ], 400));
         };
+        if($request->hasFile("image")){
+            $upload = $request->file('image')->storeOnCloudinary('think-thank');
+            $avatar->image= $upload->getSecurePath();
 
-        $upload = $request->file('image')->storeOnCloudinary('think-thank');
+        }
         // $image = $request->file('image');
         // $image->storeAs('public/avatars', $image->hashName());
         
-        $avatar->image= $upload->getSecurePath();
         $avatar->diamond = $request->diamond;
         $avatar->isLocked = $request->isLocked;
         $avatar->update();
