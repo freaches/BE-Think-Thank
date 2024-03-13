@@ -26,4 +26,4 @@ Route::apiResource('avatars', AvatarController::class)->only([
 
 Route::apiResource('diamonds', StockDiamondController::class)->only([
     'destroy', 'show', 'store', 'update'
-]);
+]); 
