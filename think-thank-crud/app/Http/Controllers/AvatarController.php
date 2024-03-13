@@ -40,8 +40,6 @@ class AvatarController extends Controller
 
     public function store(Request $request){
 
-        // $avatar = new Avatar;
-
         // $this ->validate
         $validator = Validator::make($request->all(), [
             'image'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -53,9 +51,7 @@ class AvatarController extends Controller
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
-        // upload image
-        // $image = $request->file('image');
-        // $image->storeAs('public/avatars', $image->hashName());
+
         $upload = $request->file('image')->storeOnCloudinary('think-thank');
 
         //create Avatar
@@ -65,11 +61,6 @@ class AvatarController extends Controller
             'isLocked'   => $request->isLocked,
         ]);
 
-
-        // $avatar->image = $request->image;
-        // $avatar->diamond = $request->diamond;
-        // $avatar->save();
-        // return response() ->json(["resuld"=>"ok"], 201);
         return new AvatarResource(true, 'data berhasil ditambahkan', $avatar);
     }
 
