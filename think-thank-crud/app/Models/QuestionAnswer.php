@@ -16,6 +16,6 @@ class QuestionAnswer extends Model
         "answerTrue",
         "answerFalse",
         "score",
-        "Hint",
+        "hint",
     ];
 }

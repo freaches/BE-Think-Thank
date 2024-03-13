@@ -8,4 +8,11 @@ use MongoDB\Laravel\Eloquent\Model;
 class PaymentAvatar extends Model
 {
     use HasFactory;
+
+    protected $connection = 'mongodb';
+
+    protected $fillable = [
+        "idAvatar",
+        "idUser"
+    ];
 }
