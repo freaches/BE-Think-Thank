@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\PaymentAvatarController;
+use App\Http\Controllers\PaymentDiamondController;
+use App\Http\Controllers\QuestionAnswerController;
 use App\Http\Controllers\StockDiamondController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,5 +29,21 @@ Route::apiResource('avatars', AvatarController::class)->only([
 ]);
 
 Route::apiResource('diamonds', StockDiamondController::class)->only([
+    'destroy', 'show', 'store', 'update'
+]); 
+
+Route::apiResource('admin', AdminController::class)->only([
+    'destroy', 'show', 'store', 'update'
+]); 
+
+Route::apiResource('payment-diamond', PaymentDiamondController::class)->only([
+    'destroy', 'show', 'store', 'update'
+]);
+
+Route::apiResource('payment-avatar', PaymentAvatarController::class)->only([
+    'destroy', 'show', 'store', 'update'
+]); 
+
+Route::apiResource('game',QuestionAnswerController::class)->only([
     'destroy', 'show', 'store', 'update'
 ]); 
