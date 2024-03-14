@@ -66,9 +66,9 @@ class AvatarController extends Controller
 
     public function update(Request $request, $id){
         $validator = Validator::make($request->all(), [
-            'image'     => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
-            'diamond'     => 'int|nullable',
-            'isLocked'   => 'boolean|nullable',
+            'image'     => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'diamond'     => 'int',
+            'isLocked'   => 'boolean',
         ]);
 
         // check if validation fails
