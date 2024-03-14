@@ -11,6 +11,8 @@ class QuestionAnswer extends Model
 
     protected $connection = 'mongodb';
 
+    // protected $collection = 'question';
+
     protected $fillable = [
         "question",
         "answerTrue",

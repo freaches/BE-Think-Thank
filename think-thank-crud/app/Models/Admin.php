@@ -12,7 +12,7 @@ class Admin extends Model
     protected $connection = 'mongodb';
 
     protected $fillable = [
-        "admin",
+        "account",
         "password"
     ];
 }
