@@ -8,4 +8,14 @@ use MongoDB\Laravel\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
+
+    protected $connection ="mongodb";
+
+    protected $fillable = [
+        'email',
+        'username',
+        'avatar',
+        'diamond',
+        // 'score',
+    ];
 }

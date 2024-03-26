@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\PaymentAvatarController;
 use App\Http\Controllers\PaymentDiamondController;
@@ -25,7 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('avatars', AvatarController::class)->only([
-    'destroy', 'show', 'store', 'update'
+    'destroy', 'show', 'store', 'update','index'
 ]);
 
 Route::apiResource('diamonds', StockDiamondController::class)->only([
@@ -33,8 +34,18 @@ Route::apiResource('diamonds', StockDiamondController::class)->only([
 ]); 
 
 Route::apiResource('admin', AdminController::class)->only([
-    'destroy', 'show', 'store', 'update'
+    'destroy', 'show', 'store', 'update','index'
 ]); 
+
+Route::Post('login', [AdminController::class,'login']);
+
+// User Route
+Route::Post('register', [UserController::class,'register']);
+
+// Route::apiResource('login', AdminController::class)->only([
+//    'login'
+// ]); 
+
 
 Route::apiResource('payment-diamond', PaymentDiamondController::class)->only([
     'destroy', 'show', 'store', 'update'

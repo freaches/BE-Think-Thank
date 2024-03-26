@@ -16,12 +16,19 @@ use Illuminate\Support\Facades\Validator;
 
 class AvatarController extends Controller
 {
-    public function show($slug) 
-    {
-        return view('avatar', [
-            'avatar'=> Avatar::where('slug','=', $slug)->first()
-            ]);
-    }
+    // public function show($slug) 
+    // {
+    //     return view('avatar', [
+    //         'avatar'=> Avatar::where('slug','=', $slug)->first()
+    //         ]);
+    // }
+
+    public function index()
+   {
+        $avatar = Avatar::all();
+        // return view('welcome', compact('admins'));
+        return new AvatarResource(true,"semua data avatar berhasil di dapatkan", $avatar);
+   }
 
     // public function index(): View
     // {
